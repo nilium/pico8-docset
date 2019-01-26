@@ -9,7 +9,7 @@ stages:
   - test
   - build
 
-build:
+pages:
   stage: build
   script:
     - ldoc --filter ldoc-dash.docset .
