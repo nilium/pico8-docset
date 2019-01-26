@@ -1,9 +1,15 @@
 image: mhndev/docker-lua
 
 before_script:
-  - luarocks install ldoc lsqlite3
+  - luarocks install ldoc
+  - luarocks install lsqlite3
+  
+stages:
+  - test
+  - build
 
 build:
+  stage: build
   script:
     - ldoc --filter ldoc-dash.docset .
     - ldoc -f markdown --style ldoc-dash/ --template ldoc-dash/ --dir ./PICO-8.docset/Contents/Resources/Documents/ .
@@ -23,6 +29,7 @@ build:
     - master
 
 test:
+  stage: test
   script:
     - ldoc --filter ldoc-dash.docset .
     - ldoc -f markdown --style ldoc-dash/ --template ldoc-dash/ --dir ./PICO-8.docset/Contents/Resources/Documents/ .
