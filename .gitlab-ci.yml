@@ -15,10 +15,10 @@ pages:
     - ldoc --filter ldoc-dash.docset .
     - ldoc -f markdown --style ldoc-dash/ --template ldoc-dash/ --dir ./PICO-8.docset/Contents/Resources/Documents/ .
     - tar --exclude='.DS_Store' -cvzf public/PICO-8.tgz PICO-8.docset
-    - sed -i "s/%VERSION%/$CI_COMMIT_REF/g" public/feed.xml
+    - sed -i "s/__VERSION__/$CI_COMMIT_SHA/g" public/feed.xml
   artifacts:
     paths:
-      - public
+      - public/
   only:
     - master
 

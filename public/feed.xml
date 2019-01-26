@@ -1,4 +1,4 @@
 <entry>
-  <version>%VERSION%</version>
+  <version>__VERSION__</version>
   <url>https://amanda.ddna.cc/pico8-docset/PICO-8.tgz</url>
 </entry>
