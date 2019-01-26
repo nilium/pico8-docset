@@ -1,7 +1,7 @@
 image: mhndev/docker-lua
 
 before_script:
-  - apt install -y libsqlite3-dev
+  - apt-get update && apt-get install -y libsqlite3-dev
   - luarocks install ldoc
   - luarocks install lsqlite3
 
