@@ -1,0 +1,30 @@
+image: mhndev/docker-lua
+
+before_script:
+  - luarocks install ldoc lsqlite3
+
+build:
+  script:
+    - ldoc --filter ldoc-dash.docset .
+    - ldoc -f markdown --style ldoc-dash/ --template ldoc-dash/ --dir ./PICO-8.docset/Contents/Resources/Documents/ .
+    - tar --exclude='.DS_Store' -cvzf PICO-8.tgz PICO-8.docset
+    - |
+      echo >feed.xml <<<EOF
+        <entry>
+          <version>$CI_COMMIT_SHA</version>
+          <url>https://gitlab.darkdna.net/amanda/pico8-docset/</url>
+        </entry>
+      EOF
+  artifacts:
+    paths:
+      - feed.xml
+      - PICO-8.tgz
+  only:
+    - master
+
+test:
+  script:
+    - ldoc --filter ldoc-dash.docset .
+    - ldoc -f markdown --style ldoc-dash/ --template ldoc-dash/ --dir ./PICO-8.docset/Contents/Resources/Documents/ .
+  except:
+    - master
