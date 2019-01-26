@@ -14,7 +14,7 @@ pages:
   script:
     - ldoc --filter ldoc-dash.docset .
     - ldoc -f markdown --style ldoc-dash/ --template ldoc-dash/ --dir ./PICO-8.docset/Contents/Resources/Documents/ .
-    - tar --exclude='.DS_Store' -cvzf public/PICO-8.tgz PICO-8.docset
+    - tar --exclude='.DS_Store' -cvzf public/PICO-8.tgz PICO-8.docset/Contents PICO-8.docset/icon.png PICO-8.docset/icon@2x.png
     - sed -i "s/__VERSION__/$CI_COMMIT_SHA/g" public/PICO-8.xml
   artifacts:
     paths:
