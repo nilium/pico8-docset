@@ -1,3 +1,6 @@
+--- extcmd commands
+-- @module Extcmd
+
 ----------
 -- Requests the pause menu to be opened.
 -- @extcmd pause
