@@ -82,6 +82,7 @@
 -- @function cursor
 -- @int x The X position to place the cursor.
 -- @int y The Y position to place the cursor.
+-- @int[opt] colour The colour to switch to.
 
 ----------
 -- Sets the pen colour to col
@@ -138,8 +139,8 @@
 ----------
 -- Draws a line from x1, y1 to x2, y2
 -- @function line
--- @int x1 The X position to draw from.
--- @int y1 The Y position to draw from.
+-- @int[opt=last_x2] x1 The X position to draw from.
+-- @int[opt=last_y2] y1 The Y position to draw from.
 -- @int x2 The X position to draw to.
 -- @int y2 The Y position to draw to.
 -- @int[opt=pen_colour] col The colour to use.

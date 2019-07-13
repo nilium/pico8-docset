@@ -14,6 +14,12 @@ function module.stat(db, mod, item)
     "'modules/" .. mod.name .. ".html#" .. item.name .. "');")
 end
 
+function module.extcmd(db, mod, item)
+  db:exec("INSERT OR IGNORE INTO searchINdex(name, type, path) " ..
+    "VALUES('extcmd(\"" .. item.name .. "\")', 'Directive', "..
+    "'modules/" .. mod.name .. ".html#" .. item.name .. "');")
+end
+
 function module.command(db, mod, item)
   db:exec("INSERT OR IGNORE INTO searchIndex(name, type, path) " ..
     "VALUES('" .. item.name .. "', 'Command', " ..
